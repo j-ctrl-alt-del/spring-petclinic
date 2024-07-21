@@ -8,13 +8,6 @@ pipeline {
       }
     }
 
-    stage('Unit Test') {
-      steps {
-        sh './mvnw test'
-        junit '**/target/surefire-reports/TEST-*.xml'
-      }
-    }
-
     stage('Static Analysis') {
       steps {
         sh '''mvn clean verify sonar:sonar \\
